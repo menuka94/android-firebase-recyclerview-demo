@@ -2,7 +2,6 @@ package com.example.menuka.firebaserecyclerviewdemo;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,7 +26,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView mPostRV;
+    private RecyclerView mPostRecyclerView;
     private FirebaseRecyclerAdapter<Post, PostViewHolder> mPostAdapter;
     private DatabaseReference mPostRef;
 
@@ -55,15 +54,17 @@ public class MainActivity extends AppCompatActivity {
 
         post.setUID(UID);
         post.setNumLikes(0);
-        post.setImageUrl();
+        post.setImageUrl("gs://names-d8849.appspot.com/UOMx-on-edx-logo.png");
 
+        mPostRef.child(UID).setValue(post);
     }
 
     private void initializeScreen() {
-        mPostRV = (RecyclerView) findViewById(R.id.post_recycler_view);
-        mPostRV.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        mPostRecyclerView = (RecyclerView) findViewById(R.id.post_recycler_view);
+        mPostRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         mPostRef = FirebaseDatabase.getInstance().getReference(Constants.POSTS);
         setupAdapter();
+        mPostRecyclerView.setAdapter(mPostAdapter);
     }
 
     private void setupAdapter() {
