@@ -13,4 +13,35 @@
     tools:context="com.example.menuka.firebaserecyclerviewdemo.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:id="@+id/txtUsername" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:ems="10"
+        android:layout_below="@+id/txtUsername"
+        android:layout_alignRight="@+id/txtUsername"
+        android:layout_alignEnd="@+id/txtUsername"
+        android:layout_marginTop="44dp"
+        android:id="@+id/txtEmail" />
+
+    <Button
+        android:text="Add User"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:id="@+id/btnAddUser" />
 </RelativeLayout>
